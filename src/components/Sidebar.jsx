@@ -28,7 +28,7 @@ const Sidebar = () => {
               onClick={()=>setActiveMenu(false)}
               className="items-center gap-3 ml-3 mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900"
             >
-              <SiShopware /> <span>Shoppy</span>
+              <SiShopware className="text-4xl mt-20"/> <span className="text-4xl mt-20">HuupAI</span>
             </Link>
             <TooltipComponent content="Menu" position="BottomCenter">
               <button
@@ -41,10 +41,10 @@ const Sidebar = () => {
               </button>
             </TooltipComponent>
           </div>
-          <div className="mt-10 ">
+          <div className="mt-20 ">
             {links.map((item)=>(
               <div key = {item.title}>
-                <p className="text-gray-400 dark:text-gray-400 m-3 mt-4 uppercase">
+                <p className="text-gray-400 dark:text-gray-400 m-3 mt-20 uppercase">
 
                 {item.title}
                 </p>
@@ -59,7 +59,7 @@ const Sidebar = () => {
                   className={({ isActive }) => (isActive ? activeLink : normalLink)}
                 >
                   {link.icon}
-                  <span className="capitalize ">{link.name}</span>
+                  <span className="capitalize text-m">{link.name}</span>
                 </NavLink>
                 ))}
 

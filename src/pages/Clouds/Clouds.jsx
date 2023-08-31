@@ -4,8 +4,7 @@ import { FiSettings } from 'react-icons/fi';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
 import { Navbar, Footer, Sidebar, ThemeSettings } from '../../components';
-import { CPU,GPU,Ecommerce, Orders, Calendar, Employees, Stacked, Pyramid, Customers, Kanban, Line, Area, Bar, Pie, Financial, ColorPicker, ColorMapping, Editor } from '../';
-
+import { CPU,GPU,Instances, Profile, Billing, Confirmation_CPU, Confirmation_GPU } from '../../pages';
 import './Clouds.css';
 
 import { useStateContext } from '../../contexts/ContextProvider';
@@ -68,28 +67,18 @@ const Clouds = () => {
                 {/* Market  */}
                 <Route path="/" element={(<GPU />)} />
                 <Route path="/GPU" element={<GPU />} />
-                <Route path="/ecommerce" element={(<Ecommerce />)} />
+                <Route path="/CPU" element={<CPU />} />
 
-                {/* pages  */}
-                <Route path="/orders" element={<Orders />} />
-                <Route path="/employees" element={<Employees />} />
-                <Route path="/customers" element={<Customers />} />
+                {/* My Clouds  */}
+                <Route path="/instances" element={<Instances />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/billing" element={<Billing />} />
+              
+                {/* Order  */}
+                
+                <Route path="/confirmation GPU" element={<Confirmation_GPU />} />
+                <Route path="/confirmation CPU" element={<Confirmation_CPU />} />
 
-                {/* apps  */}
-                <Route path="/kanban" element={<Kanban />} />
-                <Route path="/editor" element={<Editor />} />
-                <Route path="/calendar" element={<Calendar />} />
-                <Route path="/color-picker" element={<ColorPicker />} />
-
-                {/* charts  */}
-                <Route path="/line" element={<Line />} />
-                <Route path="/area" element={<Area />} />
-                <Route path="/bar" element={<Bar />} />
-                <Route path="/pie" element={<Pie />} />
-                <Route path="/financial" element={<Financial />} />
-                <Route path="/color-mapping" element={<ColorMapping />} />
-                <Route path="/pyramid" element={<Pyramid />} />
-                <Route path="/stacked" element={<Stacked />} />
 
               </Routes>
             </div>

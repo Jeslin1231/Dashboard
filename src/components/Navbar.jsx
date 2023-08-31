@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import { AiOutlineMenu } from "react-icons/ai";
-import { FiShoppingCart } from "react-icons/fi";
-import { BsChatLeft } from "react-icons/bs";
+import { AiOutlineHome, AiOutlineMenu } from "react-icons/ai";
+// import { FiShoppingCart } from "react-icons/fi";
+import { BsPerson} from "react-icons/bs";
 import { RiNotification3Line } from "react-icons/ri";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
@@ -9,7 +9,7 @@ import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 // import avatar from "../data/avatar.jpg";
 import wenxuan from "../data/wenxuan.jpg";
 
-import { Cart, Chat, Notification, UserProfile } from ".";
+import {Market, MyCloud, UserProfile } from ".";
 import { useStateContext } from "../contexts/ContextProvider";
 
 const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
@@ -24,23 +24,31 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
         style={{ background: dotColor }}
         className="absolute inline-flex rounded-full h-2 w-2 right-2 top-2"
       />
-        {icon}
-      
+      {icon}
     </button>
   </TooltipComponent>
 );
 
 const Navbar = () => {
-  const { activeMenu, setActiveMenu, handleClick, isClicked, setIsClicked, screenSize, setScreenSize, currentColor} = useStateContext();
+  const {
+    activeMenu,
+    setActiveMenu,
+    handleClick,
+    isClicked,
+    setIsClicked,
+    screenSize,
+    setScreenSize,
+    currentColor,
+  } = useStateContext();
 
   useEffect(() => {
     const handleResize = () => setScreenSize(window.innerWidth);
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     handleResize();
 
-    return () => window.removeEventListener('resize', handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   useEffect(() => {
@@ -51,62 +59,41 @@ const Navbar = () => {
     }
   }, [screenSize]);
 
-  
-
   return (
-    <div className="flex justify-between p-2 md:ml-6 md:mr-6 relative">
+    <div className="flex justify-between p-2 md:ml-6 md:mr-6 relative ">
       <NavButton
         title="Menu"
         customFunc={() => setActiveMenu((prevActiveMenu) => !prevActiveMenu)}
         color={currentColor}
         icon={<AiOutlineMenu />}
       />
-      <div className="flex">
+      <div className="flex ">
         <NavButton
-          title="Cart"
-          customFunc={() => handleClick("cart")}
+          title="Market"
+          customFunc={() => handleClick("Market")}
           color={currentColor}
-          icon={<FiShoppingCart />}
+          icon={<AiOutlineHome />}
         />
         <NavButton
-          title="Chat"
-          dotColor="#03C9D7"
-          customFunc={() => handleClick("chat")}
+          title="MyCloud"
+          // dotColor="#03C9D7"
+          customFunc={() => handleClick("MyCloud")}
           color={currentColor}
-          icon={<BsChatLeft />}
+          icon={<BsPerson />}
         />
         <NavButton
-          title="Notification"
-          dotColor="rgb(254, 201, 15)"
-          customFunc={() => handleClick("notification")}
+          title="Alert"
+          // dotColor="rgb(254, 201, 15)"
+          customFunc={() => handleClick("userProfile")}
           color={currentColor}
           icon={<RiNotification3Line />}
         />
 
-        <TooltipComponent content="Profile" position="BottomCenter">
-          <div
-            className="flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg"
-            onClick={() => handleClick("userProfile")}
-          >
-            <img
-              className="rounded-full w-8 h-8"
-              src={wenxuan}
-              alt="user-profile"
-            />
-            <p>
-              <span className="text-gray-400 text-14">Hi,</span>{" "}
-              <span className="text-gray-400 font-bold ml-1 text-14">
-                Wenxuan
-              </span>
-            </p>
-            <MdKeyboardArrowDown className="text-gray-400 text-14" />
-          </div>
-        </TooltipComponent>
-        {isClicked.cart && (<Cart />)}
-        {isClicked.chat && (<Chat />)}
-        {isClicked.notification && (<Notification />)}
-        {isClicked.userProfile && (<UserProfile />)}
-
+    
+        
+        {isClicked.Market && <Market />}
+        {isClicked.MyCloud && <MyCloud />}
+        {isClicked.userProfile && <UserProfile />}
       </div>
     </div>
   );

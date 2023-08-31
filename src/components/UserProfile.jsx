@@ -2,7 +2,7 @@ import React from 'react';
 import { MdOutlineCancel } from 'react-icons/md';
 
 import { Button } from '.';
-import { userProfileData } from '../data/dummy';
+// import { userProfileData } from '../data/dummy';
 import { useStateContext } from '../contexts/ContextProvider';
 import wenxuan from '../data/wenxuan.jpg';
 
@@ -12,7 +12,7 @@ const UserProfile = () => {
   return (
     <div className="nav-item absolute right-1 top-16 bg-white dark:bg-[#42464D] p-8 rounded-lg w-96">
       <div className="flex justify-between items-center">
-        <p className="font-semibold text-lg dark:text-gray-200">User Profile</p>
+        <p className="font-semibold text-lg dark:text-gray-200">User</p>
         <Button
           icon={<MdOutlineCancel />}
           color="rgb(153, 171, 180)"
@@ -29,11 +29,11 @@ const UserProfile = () => {
         />
         <div>
           <p className="font-semibold text-xl dark:text-gray-200"> Wenxuan Wu </p>
-          <p className="text-gray-500 text-sm dark:text-gray-400">  Administrator   </p>
+          <p className="text-gray-500 text-sm dark:text-gray-400">  Client  </p>
           <p className="text-gray-500 text-sm font-semibold dark:text-gray-400"> info@shop.com </p>
         </div>
       </div>
-      <div>
+      {/* <div>
         {userProfileData.map((item, index) => (
           <div key={index} className="flex gap-5 border-b-1 border-color p-4 hover:bg-light-gray cursor-pointer  dark:hover:bg-[#42464D]">
             <button
@@ -50,7 +50,7 @@ const UserProfile = () => {
             </div>
           </div>
         ))}
-      </div>
+      </div> */}
       <div className="mt-5">
         <Button
           color="white"
@@ -60,6 +60,8 @@ const UserProfile = () => {
           width="full"
         />
       </div>
+
+      
     </div>
 
   );
